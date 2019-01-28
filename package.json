@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Kevinmotanya/All-the-news-that-fit-to-scrape/issues"
   },
-  "homepage": "https://github.com/Kevinmotanya/All-the-news-that-fit-to-scrape#readme"
+  "homepage": "https://github.com/Kevinmotanya/All-the-news-that-fit-to-scrape#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
