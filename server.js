@@ -1,38 +1,42 @@
-// Required NPM Packages
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+// Dependencies
+var express = require("express");
+var exphbs = require("express-handlebars");
+var mongoose = require("mongoose");
+var bodyParser = require("body-parser");
+
+// Set up port
+var PORT = process.env.PORT || 3000;
+
+// Set up Express App
 var app = express();
 
-// Public Settings
-app.use(express.static(__dirname + '/public'));
-var port = process.env.PORT || 3000;
+// Require routes
+var routes = require("./routes");
 
+// Designate our public folder as a static directory
+app.use(express.static("public"));
 
+// Connect Handlebars to Express app
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-// BodyParser Settings
+// Use bodyParser
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-	extended: false
-}));
 
-// Set up Handlebar for views
-var expressHandlebars = require('express-handlebars');
-app.engine('handlebars', expressHandlebars({
-    defaultLayout: 'main'
-}));
-app.set('view engine', 'handlebars');
+// Have every request go through route middleware
+app.use(routes);
 
-//Routes
-var routes = require('./controllers/news.js');
-app.use('/',routes);
+// Use the deployed database or local
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-//404 Error
-app.use(function(req, res) {
-	res.render('404');
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
 });
 
-//Port
-app.listen(port, function() {
-    console.log("Listening on port:" + port);
+// Listen on the port
+app.listen(PORT, function() {
+  console.log("Listening on port: " + PORT);
 });
