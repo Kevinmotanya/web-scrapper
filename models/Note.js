@@ -1,17 +1,15 @@
-// ========== Dependcies / Requirements ==========
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-
-// ========== Devine The Articles ================
-var NoteSchema = new Schema({
-    title: {
-        type: String
-    },
-    body: {
-        type: String
-    }
+var noteSchema = new Schema({
+  _headlineId: {
+    type: Schema.Types.ObjectId,
+    ref: "Headline"
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  noteText: String
 });
-
-// ========== Article Model ======================
-var Note = mongoose.model('Note', NoteSchema);
+var Note = mongoose.model("Note", noteSchema);
 module.exports = Note;
