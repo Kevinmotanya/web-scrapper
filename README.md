@@ -4,7 +4,7 @@ https://intense-dusk-97090.herokuapp.com/
 
 This is a web app that lets users view and leave comments on the latest news. Apart of writing articles, you could scrape news from another site.
 
-### Creating a Repository
+### How To
 
 1. Create a GitHub repo for this app
 
