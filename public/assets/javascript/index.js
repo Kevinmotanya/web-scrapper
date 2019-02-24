@@ -56,13 +56,10 @@ $(document).ready(function() {
           "<div class='alert alert-warning text-center'>",
           "<h4>Uh Oh. Looks like we don't have any new articles.</h4>",
           "</div>",
-          "<div class='panel panel-default'>",
-          "<div class='panel-heading text-center'>",
-          "<h3>What Would You Like To Do?</h3>",
-          "</div>",
+          "<div class='panel panel-default'>",      
           "<div class='panel-body text-center'>",
-          "<h4><a class='scrape-new'>Try Scraping New Articles</a></h4>",
-          "<h4><a href='/saved'>Go to Saved Articles</a></h4>",
+          "<h3><a class='scrape-new'>Scrape New Articles</a></h3>",
+          "<h3><a href='/saved'>Check out Saved Articles</a></h3>",
           "</div>",
           "</div>"
         ].join("")
