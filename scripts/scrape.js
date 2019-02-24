@@ -25,12 +25,12 @@ var scrape = function() {
 
       if (head && sum && url) {
 
-        var headNeat = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
-        var sumNeat = sum.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
+        var NytHead = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
+        var NytSummary = sum.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
 
         var dataToAdd = {
-          headline: headNeat,
-          summary: sumNeat,
+          headline: NytHead,
+          summary: NytSummary,
           url: url
         };
 

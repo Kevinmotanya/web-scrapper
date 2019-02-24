@@ -30,7 +30,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(routes);
 
 // Use the deployed database or local
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_khvlzc9h:D3Wkr85NmSiccts@ds131905.mlab.com:31905/heroku_khvlzc9h";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds131905.mlab.com:31905/heroku_khvlzc9h";
 
 // Connect to the Mongo DB
 mongoose.Promise = Promise;

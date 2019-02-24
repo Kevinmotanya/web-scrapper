@@ -10,7 +10,7 @@ module.exports = {
       .then(function(dbHeadline) {
         if (dbHeadline.length === 0) {
           res.json({
-            message: "No new articles for now."
+            message: "There are no new articles."
           });
         }
         else {
